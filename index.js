@@ -8,5 +8,8 @@ express()
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
   .get('/test', (req, res) => res.json({success:true}))
-  .get('/test2', (req, res) => res.json(console.log("Printing randomly: " + Math.random()*10000); {success:true}))
+  .get('/test2', (req, res) => {
+    console.log("Printing randomly: " + Math.random()*10000);
+    res.json({success:true})
+   });
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
